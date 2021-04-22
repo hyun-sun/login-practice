@@ -5,15 +5,16 @@ import com.itosamto.trpglab.backend.model.TrpgCharacter;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TestService {
+public class CharacterService {
 
 	private final TrpgCharacterRepository trpgCharacterRepository;
 
-	public TestService(TrpgCharacterRepository trpgCharacterRepository) {
+	public CharacterService(TrpgCharacterRepository trpgCharacterRepository) {
 		this.trpgCharacterRepository = trpgCharacterRepository;
 	}
 
-	public TrpgCharacter test() {
-		return trpgCharacterRepository.findByCharacterId(1);
+	public TrpgCharacter list() {
+		// return trpgCharacterRepository.findBy;
+		return null;
 	}
 }
