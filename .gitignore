@@ -36,5 +36,9 @@ out/
 ### VS Code ###
 .vscode/
 
-/gradlew/
+gradlew**
 ./gradlew*
+gradle/
+
+# OAuth
+application-oauth.properties
