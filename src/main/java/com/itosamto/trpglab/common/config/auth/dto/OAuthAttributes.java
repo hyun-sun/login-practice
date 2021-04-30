@@ -5,6 +5,7 @@ import com.itosamto.trpglab.common.enums.Role;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Getter
@@ -35,16 +36,35 @@ public class OAuthAttributes {
 	public static OAuthAttributes of(String registrationId,
 	                                 String userNameAttributeName,
 	                                 Map<String, Object> attributes) {
-		return ofGoogle(registrationId, userNameAttributeName, attributes);
+		switch (registrationId) {
+			case "google":
+				return ofGoogle(registrationId, userNameAttributeName, attributes);
+			case "kakao":
+				return ofKakao(registrationId, userNameAttributeName, attributes);
+		}
+		return null;
 	}
 
-	private static OAuthAttributes ofGoogle(String registrationId, String userNameAttributeName,
-	                                        Map<String, Object> attributes) {
+	private static OAuthAttributes ofGoogle(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
 		return OAuthAttributes.builder()
 				.registrationId(registrationId)
 				.name((String) attributes.get("name"))
 				.email((String) attributes.get("email"))
 				.picture((String) attributes.get("picture"))
+				.attributes(attributes)
+				.nameAttributeKey(userNameAttributeName)
+				.build();
+	}
+
+	private static OAuthAttributes ofKakao(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+		String name = (String) ((LinkedHashMap)((LinkedHashMap) attributes.get("kakao_account")).get("profile")).get("nickname");
+		String email = (String) ((LinkedHashMap) attributes.get("kakao_account")).get("email");
+		String picture = (String) ((LinkedHashMap)((LinkedHashMap) attributes.get("kakao_account")).get("profile")).get("profile_image_url");
+		return OAuthAttributes.builder()
+				.registrationId(registrationId)
+				.name(name)
+				.email(email)
+				.picture(picture)
 				.attributes(attributes)
 				.nameAttributeKey(userNameAttributeName)
 				.build();
@@ -57,7 +77,7 @@ public class OAuthAttributes {
 				.userName(name)
 				.userEmail(email)
 				.picture(picture)
-				.role(Role.GUEST)
+				.role(Role.USER)
 				.build();
 	}
 
