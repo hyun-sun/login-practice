@@ -1,10 +1,12 @@
-package com.itosamto.trpglab.common.enums;
+package com.itosamto.trpglab.common.config.auth.enums;
 
 import lombok.Getter;
 
 @Getter
 public enum Role {
-	USER("USER", "일반 사용자")
+	USER("ROLE_USER", "일반 사용자"),
+	BLOCK_USER("ROLE_BLOCK_USER", "차단된 사용자"),
+	ADMIN("ROLE_ADMIN", "관리자")
 	;
 
 	private final String key;

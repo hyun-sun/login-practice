@@ -1,6 +1,6 @@
 package com.itosamto.trpglab.common.config.auth;
 
-import com.itosamto.trpglab.common.enums.Role;
+import com.itosamto.trpglab.common.config.auth.enums.Role;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/v1/**").hasRole(Role.USER.name())
 				.anyRequest().authenticated()
 				.and()
-				.logout().logoutSuccessUrl("/")
+				.logout().logoutSuccessUrl("/").deleteCookies("JSESSIONID")
 				.and()
 				.oauth2Login()
 				.userInfoEndpoint()
