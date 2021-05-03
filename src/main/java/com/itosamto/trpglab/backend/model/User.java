@@ -27,7 +27,7 @@ public class User {
 
 	private String userGender;
 
-	private String picture;
+	private String profileUrl;
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -39,8 +39,17 @@ public class User {
 	protected User() { }
 
 	@Builder
-	public User(Integer userId, String registrationId, String userEmail, String userPw, String userNickName, String userName
-			, String userGender, String picture, Role role, String userBio, Timestamp joinDate) {
+	public User(Integer userId,
+	            String registrationId,
+	            String userEmail,
+	            String userPw,
+	            String userNickName,
+	            String userName,
+	            String userGender,
+	            String profileUrl,
+	            Role role,
+	            String userBio,
+	            Timestamp joinDate) {
 		this.userId = userId;
 		this.registrationId = registrationId;
 		this.userEmail = userEmail;
@@ -48,7 +57,7 @@ public class User {
 		this.userNickName = userNickName;
 		this.userName = userName;
 		this.userGender = userGender;
-		this.picture = picture;
+		this.profileUrl = profileUrl;
 		this.role = role;
 		this.userBio = userBio;
 		this.joinDate = joinDate;
@@ -56,7 +65,7 @@ public class User {
 
 	public User update(String userName, String picture) {
 		this.userName = userName;
-		this.picture = picture;
+		this.profileUrl = picture;
 		return this;
 	}
 

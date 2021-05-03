@@ -10,8 +10,11 @@ public class CsrfRequireMatcher implements RequestMatcher {
 
 	@Override
 	public boolean matches(HttpServletRequest request) {
-		if (ALLOWED_METHODS.matcher(request.getMethod()).matches()
-				|| request.getHeader("Referer").contains("/swagger-ui"))
+		if (ALLOWED_METHODS.matcher(request.getMethod()).matches())
+			return false;
+
+		String referer = request.getHeader("Referer");
+		if (referer.contains("/swagger-ui"))
 			return false;
 
 		return true;
