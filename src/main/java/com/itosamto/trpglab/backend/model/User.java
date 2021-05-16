@@ -1,6 +1,6 @@
 package com.itosamto.trpglab.backend.model;
 
-import com.itosamto.trpglab.common.config.auth.enums.Role;
+import com.itosamto.trpglab.config.security.oauth2.user.Role;
 import lombok.Builder;
 import lombok.Getter;
 

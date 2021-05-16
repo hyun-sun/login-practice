@@ -1,4 +1,4 @@
-package com.itosamto.trpglab.common.config.auth;
+package com.itosamto.trpglab.config.security;
 
 import org.springframework.security.web.util.matcher.RequestMatcher;
 

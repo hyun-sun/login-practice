@@ -1,7 +1,6 @@
-package com.itosamto.trpglab.common.config.auth.dto;
+package com.itosamto.trpglab.config.security.oauth2.user;
 
 import com.itosamto.trpglab.backend.model.User;
-import com.itosamto.trpglab.common.config.auth.enums.Role;
 import lombok.Builder;
 import lombok.Getter;
 

@@ -4,7 +4,6 @@ import com.itosamto.trpglab.backend.trpgCharacter.dto.TrpgCharacterSaveDto;
 import com.itosamto.trpglab.backend.trpgCharacter.dto.TrpgCharacterSearchDto;
 import com.itosamto.trpglab.backend.trpgCharacter.service.CharacterService;
 import com.itosamto.trpglab.backend.model.TrpgCharacter;
-import com.itosamto.trpglab.common.config.auth.dto.SessionUser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class TrpgCharacterController {
 	@GetMapping
 	public ResponseEntity<?> list(HttpSession session) {
 		TrpgCharacterSearchDto searchDto = new TrpgCharacterSearchDto();
-		searchDto.setOwnUserId(getUserInfo(session).getUserId());
+		// searchDto.setOwnUserId(getUserInfo(session).getUserId());
 		List<TrpgCharacter> list = characterService.list(searchDto);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
@@ -33,14 +32,14 @@ public class TrpgCharacterController {
 	// 캐릭터 생성
 	@PostMapping
 	public ResponseEntity<?> create(HttpSession session, @RequestBody TrpgCharacterSaveDto trpgCharacterSaveDto) {
-		trpgCharacterSaveDto.setUserId(getUserInfo(session).getUserId());
+		// trpgCharacterSaveDto.setUserId(getUserInfo(session).getUserId());
 		TrpgCharacter trpgCharacter = characterService.createTrpgCharacter(trpgCharacterSaveDto);
 		return new ResponseEntity<>(trpgCharacter, HttpStatus.OK);
 	}
 
 	@PatchMapping
 	public ResponseEntity<?> update(HttpSession session, @RequestBody TrpgCharacterSaveDto trpgCharacterSaveDto) {
-		trpgCharacterSaveDto.setUserId(getUserInfo(session).getUserId());
+		// trpgCharacterSaveDto.setUserId(getUserInfo(session).getUserId());
 		TrpgCharacter trpgCharacter = characterService.updateTrpgCharacter(trpgCharacterSaveDto);
 		return new ResponseEntity<>(trpgCharacter, HttpStatus.OK);
 	}
@@ -55,9 +54,8 @@ public class TrpgCharacterController {
 	// 캐릭터 상세
 
 	// FIXME
-	private SessionUser getUserInfo(HttpSession httpSession) {
-		SessionUser user = (SessionUser) httpSession.getAttribute("user");
-		return user;
+	private String getUserInfo(HttpSession httpSession) {
+		return null;
 	}
 
 

@@ -1,4 +1,4 @@
-package com.itosamto.trpglab.common.config;
+package com.itosamto.trpglab.config;
 
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.junit.jupiter.api.Test;

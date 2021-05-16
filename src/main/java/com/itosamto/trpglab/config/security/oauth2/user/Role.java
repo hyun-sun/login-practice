@@ -1,4 +1,4 @@
-package com.itosamto.trpglab.common.config.auth.enums;
+package com.itosamto.trpglab.config.security.oauth2.user;
 
 import lombok.Getter;
 

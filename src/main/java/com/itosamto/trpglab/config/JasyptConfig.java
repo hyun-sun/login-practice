@@ -1,4 +1,4 @@
-package com.itosamto.trpglab.common.config;
+package com.itosamto.trpglab.config;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;

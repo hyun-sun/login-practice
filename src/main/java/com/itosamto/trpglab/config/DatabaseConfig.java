@@ -1,4 +1,4 @@
-package com.itosamto.trpglab.common.config;
+package com.itosamto.trpglab.config;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
